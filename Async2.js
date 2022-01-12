@@ -12,7 +12,7 @@ async function hablar(nombre) {
         setTimeout(function() {
             console.log('*Conversa como una persona cualquiera con* ' + nombre);
             resolve(nombre);
-        }, 1500);
+        }, 100);
     })
 }
 
@@ -21,17 +21,18 @@ async function adios(nombre) {
         setTimeout(function() {
             console.log('Hasta nunca! ' + nombre);
             resolve(nombre);
-        }, 1500);
+        }, 800);
     })
 }
 
 async function main() {
     let nombre = await hola('NN');
     await hablar(nombre); //el await fuerza al programa a ser esperar el resultado anterior, haciendolo medianamente sincronico
+    await hablar(nombre);
     await adios(nombre);
 }
 
 //Main
-//console.log('release the beast'); Estas 2 variables se estan ejecutando de forma async
+console.log('release the beast'); //Estas 2 variables se estan ejecutando de forma async
 main();
-//console.log('kill the beast');
+console.log('kill the beast');
